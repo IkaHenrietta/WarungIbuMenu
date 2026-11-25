@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from postlight.config import settings
-from postlight.routers import chat, health, posts
+from postlight.routers import chat, health, menu_items, orders, posts
 
 
 app = FastAPI(title="Postlight API")
@@ -17,4 +17,6 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(posts.router)
+app.include_router(menu_items.router)
+app.include_router(orders.router)
 app.include_router(chat.router)
